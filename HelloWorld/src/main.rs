@@ -1,3 +1,5 @@
-fn main() {
-    println!("Hello, world!");
+use HelloWorld::client::init;
+fn main()
+{
+    init();
 }
