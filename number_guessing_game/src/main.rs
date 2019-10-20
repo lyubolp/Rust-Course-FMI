@@ -12,7 +12,7 @@ fn read_number() -> u32
 fn main() {
 
     let secret_number = rand::thread_rng().gen_range(0, 10_u32);
-    println!("I've generated a number between 0 and 100. Try to guess it !");
+    println!("I've generated a number between 0 and 10. Try to guess it !");
 
     let tries:u32 = 5;
 
