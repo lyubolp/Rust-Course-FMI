@@ -1,9 +1,9 @@
-fn formula_calculate(n: u32, base: u32) -> u32{
-    let k:f64 = (n as f64).log(base as f64) + 1_f64;
+fn digital_sum(number: u32, base: u32) -> u32{
+    let number_of_digits:f64 = (number as f64).log(base as f64) + 1_f64;
     let mut sum: u32 = 0;
 
-    for i in 0..(k as u32){
-        sum += (n % (base.pow(i+1)) - n % (base.pow(i))) / (base.pow(i));
+    for i in 0..(number_of_digits as u32){
+        sum += (number % (base.pow(i+1)) - number % (base.pow(i))) / (base.pow(i));
     }
 
     sum
@@ -17,11 +17,11 @@ fn get_digital_root(input: &str, radix: u32) -> Option<u32>{
         Err(E) => return None,
     };
 
-    current_input_number = formula_calculate(current_input_number, radix);
+    current_input_number = digital_sum(current_input_number, radix);
     while current_input_number > radix-1{
-        current_input_number = formula_calculate(current_input_number, radix);
+        current_input_number = digital_sum(current_input_number, radix);
     }
-    Some(formula_calculate(current_input_number, radix))
+    Some(digital_sum(current_input_number, radix))
 }
 
 /// Десетична бройна система: 0-9
